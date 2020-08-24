@@ -1,4 +1,4 @@
-const bottone_scelta=document.getElementById("bottone_2")
+const bottone_conferma=document.getElementById("bottone_conferma")
 let pwd = ""
 function Registra(){
 	pwd = document.getElementById("display_pwd").value
