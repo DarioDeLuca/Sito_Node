@@ -1,7 +1,7 @@
-// server.js
-// load the things we need
+
 var express = require('express');
 var app = express();
+<<<<<<< HEAD
 
 
 
@@ -23,6 +23,19 @@ app.get('/registrazione', function(req, res) {
  
 });
 
+=======
+app.get('/login', function(req, res) {
+    res.render(__dirname + '/views/paginaLogin/login.ejs');
+});
+
+app.get('/registrazione', function(req, res) {
+  res.render(__dirname + '/views/paginaRegistrazione/registra.ejs');
+});
+
+app.get('/', function(req, res) {
+  res.render(__dirname + '/views/paginaHome/home.ejs');
+});
+>>>>>>> ad94189ad8541d94a28b0822a7cf00a2185555f5
 
 
 app.listen(8080);
