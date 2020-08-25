@@ -2,7 +2,6 @@
 // load the things we need
 var express = require('express');
 var app = express();
-
 // set the view engine to ejs
 app.set('view engine', 'ejs');
 
@@ -17,6 +16,10 @@ app.get('/registrazione', function(req, res) {
   res.render('paginaRegistrazione/registra');
 });
 
+app.get('/', function(req, res) {
+  res.render('paginaHome/home');
+});
+
 
 app.listen(8080);
-console.log('bene');
+console.log('SERVER AVVIATO!');
