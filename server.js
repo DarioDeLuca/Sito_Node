@@ -1,15 +1,25 @@
 var express = require('express');
 var app = express();
+
+app.use(express.static('public'))
+app.use('/css',express.static(__dirname + 'public/css'))
+app.use('/js',express.static(__dirname + 'public/js'))
+
+
+app.set('views','./views')
+app.set('view engine','ejs')
+
+
 app.get('/login', function(req, res) {
-    res.render(__dirname + '/views/paginaLogin/login.ejs');
+    res.render('login');
 });
 
 app.get('/registrazione', function(req, res) {
-  res.render(__dirname + '/views/paginaRegistrazione/registra.ejs');
+  res.render('registra');
 });
 
 app.get('/', function(req, res) {
-  res.render(__dirname + '/views/paginaHome/home.ejs');
+  res.render('home');
 });
 
 
