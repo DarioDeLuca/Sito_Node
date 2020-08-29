@@ -12,10 +12,10 @@ const con = mysql.createConnection({
   multipleStatements: true
 })
 
-con.connect(function(err) {
-  if (err) throw err;
-  console.log("Connected to the DB!");
-})
+//con.connect(function(err) {
+//  if (err) throw err;
+//  console.log("Connected to the DB!");
+//})
 
 app.use(express.static('public'))
 app.use('/css',express.static(__dirname + 'public/css'))
@@ -39,16 +39,15 @@ app.get('/', function(req, res) {
   res.render('home');
 })
 
-
 app.listen(8080);
 console.log('SERVER AVVIATO!')
 
-con.connect(function(err) {
-  if (err) throw err
-  con.query(sql, function (err, result) {
-    if (err) throw err
-  })
-})
+//con.connect(function(err) {
+//  if (err) throw err
+//  con.query(sql, function (err, result) {
+//    if (err) throw err
+//  })
+//})
 
 app.get('/reg',(req,res)=>{
   qry=`INSERT INTO mydb VALUES (${con.escape(user)},${con.escape(password)})`
@@ -57,3 +56,4 @@ app.get('/reg',(req,res)=>{
     if (err) {throw err;console.log('errore nel salvataggio')}
   })
 })
+

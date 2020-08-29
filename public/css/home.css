@@ -1,3 +1,22 @@
-#bottone_registra{
+*{
+  background-color: rgb(141, 9, 9);
+}
+
+#navbar{
+  color: yellow;
   background-color: orange;
+  margin: 0px !important; 
+}
+
+#navbar_link{
+  background-color: orange;
+}
+
+#navbar_title{
+  background-color: orange;
+}
+
+#jumbo1{
+  background-color: rgb(141, 9, 9) !important;
+  margin: 0px; 
 }
