@@ -1,0 +1,19 @@
+body {
+  padding: 50px;
+  background-color: black;
+  
+}
+
+#console_credenziali{
+  
+  margin: auto;
+  color: white;
+  width: 660px;
+}
+
+
+h1{
+margin-bottom: 25px;
+text-align: center;
+color: white;
+}
