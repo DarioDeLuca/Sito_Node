@@ -1,5 +1,5 @@
-*{
-  background-color: rgb(141, 9, 9);
+body{
+  background-color: rgb(141, 9, 9)
 }
 
 #navbar{
@@ -17,6 +17,7 @@
 #navbar_title{
   color:  rgb(141, 9, 9);
   background-color: orange;
+  font-size-adjust: 0.85;
 }
 
 #titolo{
@@ -28,3 +29,22 @@
   margin: 0px; 
 }
 
+.card{
+  background-color: orange
+}
+
+.bottone{
+  background-color: rgb(141, 9, 9);
+  color: orange;
+  border-color: black;
+  
+}
+.bottone:hover {
+  color: #fff;
+  background-color: #d31d1de0;
+  border-color: #d31d1de0;
+}
+
+.testiNav{
+  font-size-adjust: 0.53;
+}

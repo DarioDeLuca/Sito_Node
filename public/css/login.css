@@ -7,7 +7,7 @@ body {
 #console_credenziali{
   background-color: orange;
   margin: auto;
-  color: white;
+  color: rgb(141, 9, 9);
   margin-top: 50px;
   padding: 25px;
   width: 750px;
@@ -18,7 +18,7 @@ body {
 h1{
 margin-bottom: 25px;
 text-align: center;
-color: white;
+color: rgb(141, 9, 9);
 }
 
 #navbar{
@@ -36,4 +36,31 @@ color: white;
 #navbar_title{
   color:  rgb(141, 9, 9);
   background-color: orange;
+  font-size-adjust: 0.85;
+}
+
+.testiNav{
+  font-size-adjust: 0.53;
+}
+
+#titolo{
+  color: orange;
+}
+
+#jumbo1{
+  background-color: rgb(141, 9, 9) !important;
+  margin: 0px; 
+}
+
+
+.bottone{
+  background-color: rgb(141, 9, 9);
+  color: orange;
+  border-color: black;
+  
+}
+.bottone:hover {
+  color: #fff;
+  background-color: #d31d1de0;
+  border-color: #d31d1de0;
 }
