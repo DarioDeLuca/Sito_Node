@@ -1,5 +1,6 @@
 const bottone_scelta=document.getElementById("bottone_conferma")
-const bottone_home=document.getElementById("bottone_home")
+
+
 
 
 function RegistraValori(){
@@ -10,9 +11,7 @@ function RegistraValori(){
 	}
 }
 
-function saluta(){
-	console.log("diocane")
-}
+
 
 bottone_scelta.onclick=RegistraValori
 

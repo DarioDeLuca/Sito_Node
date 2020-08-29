@@ -10,11 +10,25 @@
 
 
   <body>
-    
 
-    <h1>Benvenuto! Inserisci le tue credenziali</h1>
+     <!-- Navbar --> 
+     <div class="d-flex flex-column flex-md-row align-items-center p-3 px-md-4 mb-3 shadow-sm" id="navbar">
+      <div class="my-0 mr-md-auto font-weight-normal" id="navbar_title">
+          <h5 id="navbar_title">S.R.I. inc.</h5>
+      </div>
+      <nav class="my-2 my-md-0 mr-md-3">
+        <a class="p-2 text-dark" href="https://it.wikipedia.org/wiki/Sacro_Romano_Impero" id="navbar_link">Su di Noi</a>
+          <a class="p-2 text-dark" href="https://it.wikipedia.org/wiki/Portale:Crociate" id="navbar_link">Vacanze in Terrasanta</a>
+          <a class="p-2 text-dark" href="https://www.pinterest.it/tommasobeccani/sacro-romano-impero/" id="navbar_link">Portale foro</a>
+          <a class="p-2 text-dark" href="https://www.instagram.com/feudalesimoeliberta/" id="navbar_link">Pagina instagram</a>
+      </nav>
+      <a class="btn btn-outline-primary btn-lg" href="/registrazione" id="bottone_registra">Registrati</a>
+      <a class="btn btn-outline-primary btn-lg" href="/login" id="bottone_login">Accedi</a>
+    </div>
+
 
     <form id="console_credenziali">
+      <h1>Benvenuto! Inserisci le tue credenziali</h1>
       <div class="form-group">
         <label for="exampleInputEmail1">Indirizzo e-mail</label>
         <input type="email" class="form-control" id="display_email" aria-describedby="emailHelp">
@@ -25,7 +39,7 @@
         <input type="password" class="form-control" id="display_pwd">
       </div>
       <button type="submit" class="btn btn-primary" id="bottone_conferma">Conferma</button>
-      <button type="submit" class="btn btn-primary" id="bottone_home" onclick="()=>{saluta()}">Torna alla home</button>
+      <a class="btn btn-primary" href="/" role="button">Torna alla home</a>
     </form>
 
     <script src="https://code.jquery.com/jquery-3.5.1.slim.min.js" integrity="sha384-DfXdz2htPH0lsSSs5nCTpuj/zy4C+OGpamoFVy38MVBnE+IbbVYUew+OrCXaRkfj" crossorigin="anonymous"></script>
