@@ -56,3 +56,16 @@ app.get('/reg',(req,res)=>{
     if (err) {throw err;console.log('errore nel salvataggio')}
   })
 })
+/*app.get('/val',(req,res)=>{
+  qry=`SELECT * FROM mydb WHERE user= ${con.escape(user)}`
+  if (err) throw err
+  a=()=>con.query(qry, function (err, result) {
+    if (err) throw err
+    return(result)
+  })
+  if (a==None){
+    caricare la pagina stampando username o password errati}
+    else if (a[1]==${con.escape(password)}){caricare la pagina personale}
+    else {Caricare la pagina personale}
+  }
+})*/
