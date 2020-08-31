@@ -3,12 +3,15 @@ let email=""
 let pwd=""
 
 
-function Verifica(){
-	email = document.getElementById("display_email").value
-	pwd = document.getElementById("display_pwd").value
-	console.log("bela")
+function Verifica(e,p){
+	e = document.getElementById("display_email").value
+	p = document.getElementById("display_pwd").value
+	
 }
-bottone_scelta.onclick=Verifica()
+
+bottone_scelta.onclick=Verifica(email,pwd)
+
+
 
 
 

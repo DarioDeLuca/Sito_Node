@@ -10,10 +10,25 @@
 
 
   <body>
-    
 
-    <h1>Benvenuto! Inserisci le tue credenziali</h1>
-    <form>
+     <!-- Navbar --> 
+     <div class="d-flex flex-column flex-md-row align-items-center p-3 px-md-4 mb-3 shadow-sm" id="navbar">
+      <div class="my-0 mr-md-auto font-weight-normal" id="navbar_title">
+        <a id="navbar_title" href="/">S.R.I. inc.</a>
+      </div>
+      <nav class="my-2 my-md-0 mr-md-3 testiNav">
+        <a class="p-2 text-dark" href="https://it.wikipedia.org/wiki/Sacro_Romano_Impero" id="navbar_link">Su di Noi</a>
+          <a class="p-2 text-dark" href="https://it.wikipedia.org/wiki/Portale:Crociate" id="navbar_link">Vacanze in Terrasanta</a>
+          <a class="p-2 text-dark" href="https://www.pinterest.it/tommasobeccani/sacro-romano-impero/" id="navbar_link">Portale foro</a>
+          <a class="p-2 text-dark" href="https://www.instagram.com/feudalesimoeliberta/" id="navbar_link">Pagina instagram</a>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+      </nav>
+      <a class="btn btn-outline-primary btn-lg bottone" href="/registrazione" id="bottone_registra">Registrati</a>&nbsp;&nbsp;
+      <a class="btn btn-outline-primary btn-lg bottone" href="/login" id="bottone_login">Accedi</a>
+    </div>
+
+
+    <form id="console_credenziali">
+      <h1>Benvenuto! Inserisci le tue credenziali</h1>
       <div class="form-group">
         <label for="exampleInputEmail1">Indirizzo e-mail</label>
         <input type="email" class="form-control" id="display_email" aria-describedby="emailHelp">
@@ -23,7 +38,8 @@
         <label for="exampleInputPassword1">Password</label>
         <input type="password" class="form-control" id="display_pwd">
       </div>
-      <button type="submit" class="btn btn-primary" id="bottone_conferma">Conferma</button>
+      <button type="submit" class="btn btn-primary bottone" id="bottone_conferma">Conferma</button>
+      <a class="btn btn-primary bottone" href="/" role="button">Torna alla home</a>
     </form>
 
     <script src="https://code.jquery.com/jquery-3.5.1.slim.min.js" integrity="sha384-DfXdz2htPH0lsSSs5nCTpuj/zy4C+OGpamoFVy38MVBnE+IbbVYUew+OrCXaRkfj" crossorigin="anonymous"></script>
