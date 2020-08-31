@@ -31,7 +31,7 @@ app.get('/login', function(req, res) {
     res.render('login');
 })
 
-app.get('/registrazione', function(req, res) {
+app.get('/registrazione', function(req, res) {  
   res.render('registra');
 })
 
