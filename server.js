@@ -1,7 +1,7 @@
 const express = require('express')
 const app = express()
 
-const mysql = require('mysql')
+/*const mysql = require('mysql')
 const { query } = require('express')
 
 const con = mysql.createConnection({
@@ -15,7 +15,7 @@ const con = mysql.createConnection({
 con.connect(function(err) {
   if (err) throw err;
   console.log("Connected to the DB!");
-})
+})*/
 
 app.use(express.static('public'))
 app.use('/css',express.static(__dirname + 'public/css'))
@@ -49,14 +49,14 @@ con.connect(function(err) {
   })
 })
 
-app.get('/reg',(req,res)=>{
+/*app.get('/reg',(req,res)=>{
   qry=`INSERT INTO mydb VALUES (${con.escape(user)},${con.escape(password)})`
   if (err) throw err
   con.query(qry, function (err, result) {
     if (err) {throw err;console.log('errore nel salvataggio')}
   })
 })
-/*app.get('/val',(req,res)=>{
+app.get('/val',(req,res)=>{
   qry=`SELECT * FROM mydb WHERE user= ${con.escape(user)}`
   if (err) throw err
   a=()=>con.query(qry, function (err, result) {
