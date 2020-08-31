@@ -10,7 +10,7 @@ const salt="hdhbvndjvlelabjla dduhebvlbnvòf zvui plgbu48rphu334icdr 43jvqr"//vi
 const con = mysql.createConnection({
   host: "localhost",
   user: "root",
-  password: "pippoplut0",
+  password: "password",
   database: "utenti",
   multipleStatements: true
 })
