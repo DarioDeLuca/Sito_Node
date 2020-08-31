@@ -1,23 +1,19 @@
 const express = require('express')
 const app = express()
+const mysql = require('mysql')
+const { query } = require('express')  
+const crypto = require ('crypto') //serve per l'ash
+const url= require ('url')
 
-/*const mysql = require('mysql')
-const { query } = require('express')
+const salt="hdhbvndjvlelabjla dduhebvlbnvòf zvui plgbu48rphu334icdr 43jvqr"//viene concatenata alla password
 
 const con = mysql.createConnection({
   host: "localhost",
-  user: "yourusername",
-  password: "yourpassword",
-  database: "mydb",
+  user: "root",
+  password: "pippoplut0",
+  database: "utenti",
   multipleStatements: true
 })
-
-con.connect(function(err) {
-  if (err) throw err;
-  console.log("Connected to the DB!");
-})*/
-
-
 
 app.use(express.static('public'))
 app.use('/css',express.static(__dirname + 'public/css'))
@@ -46,23 +42,33 @@ console.log('SERVER AVVIATO!')
 
 
 
-/*app.get('/reg',(req,res)=>{
-  qry=`INSERT INTO mydb VALUES (${con.escape(user)},${con.escape(password)})`
-  if (err) throw err
-  con.query(qry, function (err, result) {
-    if (err) {throw err;console.log('errore nel salvataggio')}
+app.post('/reg',(req,res)=>{
+  const user = url.parse(req.url, true).query.user
+  const password= url.parse(req.url, true).query.password
+  const hash = crypto.createHash('md5').update(password+salt).digest("hex")
+  const qry=`INSERT INTO elenco_utenti (utente, pwd) VALUES (${con.escape(user)},${con.escape(hash)})`
+  con.connect(function(err) {
+    if (err) throw err
+    con.query(qry, function (err, result) {
+      if (err) {throw err;console.log('errore nel salvataggio')}
+    })
   })
 })
+
 app.get('/val',(req,res)=>{
-  qry=`SELECT * FROM mydb WHERE user= ${con.escape(user)}`
-  if (err) throw err
-  a=()=>con.query(qry, function (err, result) {
+  const user = url.parse(req.url, true).query.user //scrivere nell'url ?user= valore & password=valore
+  const password= url.parse(req.url, true).query.password
+  const hash = crypto.createHash('md5').update(password+salt).digest("hex")
+  const qry=`SELECT * FROM elenco_utenti WHERE utente= ${con.escape(user)} AND pwd=${con.escape(hash)}`
+  con.connect(function(err) {
     if (err) throw err
-    return(result)
+    con.query(qry, function (err, result) {
+      if (err) {throw err;console.log('errore nel salvataggio')}
+    if (result.id !=0 ) {/*restituire l'html della pagina personale*/}
+    else {res.send({status : 700})}
+    /*QUANDO SI RICEVE STATUS CODE 700, RESTARE SULLA PAGINA MANDANDO L'ALLERT USER O PASSWORD ERRATE*/
+    })
   })
-  if (a==None){
-    caricare la pagina stampando username o password errati}
-    else if (a[1]==${con.escape(password)}){caricare la pagina personale}
-    else {Caricare la pagina personale}
-  }
-})*/
+})
+
+
