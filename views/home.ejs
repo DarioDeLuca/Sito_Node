@@ -10,15 +10,15 @@
 
   <body>
     <!-- Navbar --> 
-    <div class="d-flex flex-column flex-md-row align-items-center p-3 px-md-4 mb-3 bg-white border-bottom shadow-sm">
-        <div class="my-0 mr-md-auto font-weight-normal">
-            <h5>S.R.I. inc.</h5>
+    <div class="d-flex flex-column flex-md-row align-items-center p-3 px-md-4 mb-3 shadow-sm" id="navbar">
+        <div class="my-0 mr-md-auto font-weight-normal" id="navbar_title">
+            <h5 id="navbar_title">S.R.I. inc.</h5>
         </div>
         <nav class="my-2 my-md-0 mr-md-3">
-          <a class="p-2 text-dark" href="#">Su di Noi</a>
-          <a class="p-2 text-dark" href="#">Vacanze in Terrasanta</a>
-          <a class="p-2 text-dark" href="#">Programma crociate</a>
-          <a class="p-2 text-dark" href="#">Pagina instagram</a>
+          <a class="p-2 text-dark" href="#" id="navbar_link">Su di Noi</a>
+          <a class="p-2 text-dark" href="#" id="navbar_link">Vacanze in Terrasanta</a>
+          <a class="p-2 text-dark" href="#" id="navbar_link">Portale foro</a>
+          <a class="p-2 text-dark" href="#" id="navbar_link">Pagina instagram</a>
         </nav>
         <a class="btn btn-outline-primary btn-lg" href="/registrazione" id="bottone_registra">Registrati</a>
         <a class="btn btn-outline-primary btn-lg" href="/login" id="bottone_login">Accedi</a>
@@ -30,6 +30,51 @@
           <h1 class="display-4 text-center">SACRO ROMANO IMPERO</h1>
           <p class="lead text-center">O tempora, o mores! Senatus haec intellegit. consul videt; hic tamen vivit. Vivit?</p>
         </div>
+    </div>
+
+    <!-- Cards -->
+     
+    <div class="row row-cols-1 row-cols-md-2">
+      <div class="col mb-4">
+        <div class="card">
+          <img src="https://qph.fs.quoracdn.net/main-qimg-cd89fb6de4f48ad77dc98fd35d44ea61" class="card-img-top" alt="Immagine di un aquila">
+          <div class="card-body">
+            <h5 class="card-title">Iscrizioni nuove reclute</h5>
+            <p class="card-text">Arruolati nelle legioni compilando il seguente modulo per spedirlo alla caserma a te più vicina.</p>
+            <a href="#" class="btn btn-primary">Compila il modulo</a>
+          </div>
+        </div>
+      </div>
+      <div class="col mb-4">
+        <div class="card">
+          <img src="https://www.ottopagine.it/public/thumb/658x370/12-2019/17/news203047.jpg" class="card-img-top" alt="Immagine teatro">
+          <div class="card-body">
+            <h5 class="card-title">Programmi teatrali</h5>
+            <p class="card-text">Visualizza il calendario degli incontri a teatro di questo mese.</p>
+            <a href="#" class="btn btn-primary">Controlla la programmazione</a>
+          </div>
+        </div>
+      </div>
+      <div class="col mb-4">
+        <div class="card">
+          <img src="https://www.etraduzioni.it/static/images/articole/1623/corso%20individuale%20di%20greco%20padova.jpg" class="card-img-top" alt="Immagine corso greco">
+          <div class="card-body">
+            <h5 class="card-title">Certificato bilinguismo latino-greco</h5>
+            <p class="card-text">Corsi, esami e certificazioni per il diploma di conoscenza della lingua ellenica con anche eventuali soggiorni.</p>
+            <a href="#" class="btn btn-primary">Più informazioni</a>
+          </div>
+        </div>
+      </div>
+      <div class="col mb-4">
+        <div class="card">
+          <img src="https://1.bp.blogspot.com/-s9NeKYEPm2o/W8xk-G6hSYI/AAAAAAAAB4k/k3FNp9RBjLEJvbQ1nMMlnxuNcUT0YQLeQCLcBGAs/s640/diritto-romano.jpg" class="card-img-top" alt="Immagine portale servi">
+          <div class="card-body">
+            <h5 class="card-title">Portale servi</h5>
+            <p class="card-text">Informati per il tuo primo esame o per il rinnovo della tua posizione in graduatoria.</p>
+            <a href="#" class="btn btn-primary">Vai al portale dedicato</a>
+          </div>
+        </div>
+      </div>
     </div>
 
     <script src="https://code.jquery.com/jquery-3.5.1.slim.min.js" integrity="sha384-DfXdz2htPH0lsSSs5nCTpuj/zy4C+OGpamoFVy38MVBnE+IbbVYUew+OrCXaRkfj" crossorigin="anonymous"></script>
