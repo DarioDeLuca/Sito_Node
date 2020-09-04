@@ -6,7 +6,7 @@ let pwd=""
 function Verifica(e,p){
 	e = document.getElementById("display_email").value
 	p = document.getElementById("display_pwd").value
-	
+
 }
 
 bottone_scelta.onclick=Verifica(email,pwd)

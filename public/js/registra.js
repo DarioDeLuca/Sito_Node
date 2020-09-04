@@ -1,23 +1,16 @@
-const bottone_scelta=document.getElementById("bottone_conferma")
-const fetch = require('node-fetch')
 
-/*function RegistraValori(){
+function RegistraValori(){
 	let email = document.getElementById("display_email").value
 	let pwd = document.getElementById("display_pwd").value
-	fetch("/reg" ,{
-		method :"post",
-		user: email,
-		password: pwd
-	})
-	if (pwd==="ciao" && email==="caio@gmail.com"){
-		console.log("bela")
-	}
+	fetch(`/reg?user=${email}&password=${pwd}`,{method: "POST"})
+	.then(res=>res.json())
+	.then(res=>{if (res.status==200) alert("registrazione effettuata")
+	else if (res.status==800) alert('error')})
 }
 
 
 
-bottone_scelta.onclick=RegistraValori*/
 
-//Controllare e capire come usare fetch 
+
 
 

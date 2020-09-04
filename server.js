@@ -1,9 +1,9 @@
 const express = require('express')
 const app = express()
 const mysql = require('mysql')
-const { query } = require('express')  
-const crypto = require ('crypto') //serve per l'ash
+const crypto = require ('crypto') //serve per l'hash
 const url= require ('url')
+
 
 const salt="hdhbvndjvlelabjla dduhebvlbnvòf zvui plgbu48rphu334icdr 43jvqr"//viene concatenata alla password
 
@@ -50,7 +50,8 @@ app.post('/reg',(req,res)=>{
   con.connect(function(err) {
     if (err) throw err
     con.query(qry, function (err, result) {
-      if (err) {throw err;console.log('errore nel salvataggio')}
+      if (err) {throw err; res.send({status : 800})}
+      res.send({status:200})
     })
   })
 })
