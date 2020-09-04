@@ -47,29 +47,25 @@ app.post('/reg',(req,res)=>{
   const password= url.parse(req.url, true).query.password
   const hash = crypto.createHash('md5').update(password+salt).digest("hex")
   const qry=`INSERT INTO elenco_utenti (utente, pwd) VALUES (${con.escape(user)},${con.escape(hash)})`
-  con.connect(function(err) {
-    if (err) throw err
     con.query(qry, function (err, result) {
       if (err) {throw err; res.send({status : 800})}
-      res.send({status:200})
     })
   })
-})
+
 
 app.get('/val',(req,res)=>{
   const user = url.parse(req.url, true).query.user //scrivere nell'url ?user= valore & password=valore
   const password= url.parse(req.url, true).query.password
   const hash = crypto.createHash('md5').update(password+salt).digest("hex")
   const qry=`SELECT * FROM elenco_utenti WHERE utente= ${con.escape(user)} AND pwd=${con.escape(hash)}`
-  con.connect(function(err) {
-    if (err) throw err
-    con.query(qry, function (err, result) {
+  con.query(qry, function (err, result) {
       if (err) {throw err;console.log('errore nel salvataggio')}
-    if (result.id !=0 ) {/*restituire l'html della pagina personale*/}
-    else {res.send({status : 700})}
+    console.log(result)
+    if (result.length>0) {console.log("login")}
+    else {res.send({status : 800})}
     /*QUANDO SI RICEVE STATUS CODE 700, RESTARE SULLA PAGINA MANDANDO L'ALLERT USER O PASSWORD ERRATE*/
     })
   })
-})
+
 
 

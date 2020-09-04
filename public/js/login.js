@@ -1,15 +1,14 @@
-const bottone_scelta=document.getElementById("bottone_conferma")
-let email=""
-let pwd=""
 
 
-function Verifica(e,p){
-	e = document.getElementById("display_email").value
-	p = document.getElementById("display_pwd").value
-
+function login(){
+	let email= document.getElementById("display_email").value
+	let pwd= document.getElementById("display_pwd").value
+	fetch(`/val?user=${email}&password=${pwd}`,{method: "GET"})
+	.then(res=>res.json())
+	.then(res=>{if (res.status==800) alert('error')})
 }
 
-bottone_scelta.onclick=Verifica(email,pwd)
+
 
 
 
