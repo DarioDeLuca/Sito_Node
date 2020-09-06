@@ -1,18 +1,22 @@
-const bottone_scelta=document.getElementById("bottone_conferma")
-
-
-
 
 function RegistraValori(){
 	let email = document.getElementById("display_email").value
 	let pwd = document.getElementById("display_pwd").value
-	if (pwd==="ciao" && email==="caio@gmail.com"){
-		console.log("bela")
+	if (email === "" || pwd==="" ){
+		alert("inserire i dati richiesti")
 	}
+	else {
+		if(pwd.length>8 && pwd.match(/[A-Z]/ && /[a-z]/ && /[0-9]/))
+		{fetch(`/reg?user=${email}&password=${pwd}`,{method: "POST"})
+		.then(res=>res.json())
+		.then(res=>{if (res.status==800) {alert('error')} else{alert('registrazione effettuata con successo')}})}
+		else {alert("la password non rispetta le condizioni ")}
+		}
 }
 
 
 
-bottone_scelta.onclick=RegistraValori
+
+
 
 
