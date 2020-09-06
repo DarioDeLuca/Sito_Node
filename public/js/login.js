@@ -3,7 +3,7 @@ let email=""
 let pwd=""
 
 
-function Verifica(e,p){
+function Verifica(p){
 	e = document.getElementById("display_email").value
 	p = document.getElementById("display_pwd").value
 	
