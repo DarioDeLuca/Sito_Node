@@ -30,7 +30,9 @@ body{
 }
 
 .card{
-  background-color: orange
+  background-color: orange;
+  width:  900px;
+  margin: auto;
 }
 
 .bottone{
@@ -47,4 +49,12 @@ body{
 
 .testiNav{
   font-size-adjust: 0.53;
+}
+
+.logo{
+  width: 650px;
+  height: 500px;
+  margin: auto;
+  margin-bottom: 25px;
+  margin-top: 25px;
 }

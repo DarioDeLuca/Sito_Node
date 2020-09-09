@@ -18,7 +18,7 @@ const con = mysql.createConnection({
 app.use(express.static('public'))
 app.use('/css',express.static(__dirname + 'public/css'))
 app.use('/js',express.static(__dirname + 'public/js'))
-
+app.use('/img',express.static(__dirname + 'public/img'))
 
 
 app.set('views','./views')
@@ -54,7 +54,7 @@ app.post('/reg',(req,res)=>{
 
 
 app.get('/val',(req,res)=>{
-  const user = url.parse(req.url, true).query.user //scrivere nell'url ?user= valore & password=valore
+  const user = url.parse(req.url, true).query.user //scrivere nell'url ?user=valore & password=valore
   const password= url.parse(req.url, true).query.password
   const hash = crypto.createHash('md5').update(password+salt).digest("hex")
   const qry=`SELECT * FROM elenco_utenti WHERE utente= ${con.escape(user)} AND pwd=${con.escape(hash)}`
