@@ -1,7 +1,6 @@
-
-
 function login(){
 	let email= document.getElementById("display_email").value
+	
 	let pwd= document.getElementById("display_pwd").value
 	if(email === "" || pwd===""){
 		alert("inserire i dati richiesti")
