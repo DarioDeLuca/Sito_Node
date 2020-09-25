@@ -52,8 +52,18 @@ app.post('/reg',(req,res)=>{
     })
   })
 
+ const middleware = function(req,res,next) {
+  const user = url.parse(req.url, true).query.user 
+  const qry=`SELECT * FROM elenco_utenti WHERE utente= ${con.escape(user)}}`
+  con.query(qry, function (err, result) {
+      if (err) {throw err;console.log('errore nel salvataggio')}  
+  if (result.length()===0){
+  	next()
+  }
+  else{res.send({status:800})}	 		
+ }
 
-app.get('/val',(req,res)=>{
+app.get('/val',middleware,(req,res)=>{
   const user = url.parse(req.url, true).query.user //scrivere nell'url ?user= valore & password=valore
   const password= url.parse(req.url, true).query.password
   const hash = crypto.createHash('md5').update(password+salt).digest("hex")
@@ -63,7 +73,7 @@ app.get('/val',(req,res)=>{
     console.log(result)
     if (result.length>0) {console.log("login")}
     else {res.send({status : 800})}
-    /*QUANDO SI RICEVE STATUS CODE 700, RESTARE SULLA PAGINA MANDANDO L'ALLERT USER O PASSWORD ERRATE*/
+    /*QUANDO SI RICEVE STATUS CODE 800, RESTARE SULLA PAGINA MANDANDO L'ALLERT USER O PASSWORD ERRATE*/
     })
   })
 
