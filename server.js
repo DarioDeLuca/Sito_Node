@@ -40,16 +40,29 @@ app.get('/', function(req, res) {
 app.listen(8080);
 console.log('SERVER AVVIATO!')
 
+midd=function(req,res,next){
+  const user = url.parse(req.url, true).query.user
+  const qry=`SELECT * FROM elenco_utenti WHERE utente= ${con.escape(user)}`
+  con.query(qry,function(err,result){
+    if (err){throw err;console.log('error')}
+    if(result.length===0){
+      next()
+    }
+    else{
+      console.log('username già in uso')
+      res.send({status:800})
+    }
+  })
+}
 
-
-app.post('/reg',(req,res)=>{
+app.post('/reg',midd,(req,res)=>{
   const user = url.parse(req.url, true).query.user
   const password= url.parse(req.url, true).query.password
   const hash = crypto.createHash('md5').update(password+salt).digest("hex")
   const qry=`INSERT INTO elenco_utenti (utente, pwd) VALUES (${con.escape(user)},${con.escape(hash)})`
     con.query(qry, function (err, result) {
       if (err) {throw err; res.send({status : 800})}
-      else{res.send({status : 200})}
+      else{res.send({status : 200}), console.log('registrazione effettuata con successo')}
     })
   })
 
@@ -60,7 +73,7 @@ app.get('/val',(req,res)=>{
   const hash = crypto.createHash('md5').update(password+salt).digest("hex")
   const qry=`SELECT * FROM elenco_utenti WHERE utente= ${con.escape(user)} AND pwd=${con.escape(hash)}`
   con.query(qry, function (err, result) {
-    if (err) {throw err;console.log('errore nel salvataggio')}
+    if (err) {throw err;console.log('error')}
     if (result.length<1) {res.send({statusCode: 800}); console.log('error')}
     else {res.send({status : 200});console.log('login')}
     console.log(res.json())
