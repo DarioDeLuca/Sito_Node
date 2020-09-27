@@ -17,9 +17,7 @@ function RegistraValori(){
 		if(pwd.length>8 && pwd.match(/[A-Z]/ && /[a-z]/ && /[0-9]/))
 		{fetch(`/reg?user=${email}&password=${pwd}`,{method: "POST"})
 		.then(res=>res.json())
-		.then(res=>{if (res.status==800) {alert('error')} else{alert('registrazione effettuata con successo'); DisattivaBottoni();}}) /* Disattiva bottoni dovrebbe disabilitare i bottoni di login e registrazione*/
-		
-		
+		.then(res=>{if (res.status==200) {alert('registrazione effettuata con successo'); console.log('OK')} else{alert('error');}}) /* Disattiva bottoni dovrebbe disabilitare i bottoni di login e registrazione*/
 	}
 		else {alert("la password non rispetta le condizioni ")}
 		}

@@ -18,7 +18,7 @@ const con = mysql.createConnection({
 app.use(express.static('public'))
 app.use('/css',express.static(__dirname + 'public/css'))
 app.use('/js',express.static(__dirname + 'public/js'))
-app.use('/img',express.static(__dirname + 'public/img'))
+
 
 
 app.set('views','./views')
@@ -49,21 +49,21 @@ app.post('/reg',(req,res)=>{
   const qry=`INSERT INTO elenco_utenti (utente, pwd) VALUES (${con.escape(user)},${con.escape(hash)})`
     con.query(qry, function (err, result) {
       if (err) {throw err; res.send({status : 800})}
+      else{res.send({status : 200})}
     })
   })
 
 
 app.get('/val',(req,res)=>{
-  const user = url.parse(req.url, true).query.user //scrivere nell'url ?user=valore & password=valore
+  const user = url.parse(req.url, true).query.user 
   const password= url.parse(req.url, true).query.password
   const hash = crypto.createHash('md5').update(password+salt).digest("hex")
   const qry=`SELECT * FROM elenco_utenti WHERE utente= ${con.escape(user)} AND pwd=${con.escape(hash)}`
   con.query(qry, function (err, result) {
-      if (err) {throw err;console.log('errore nel salvataggio')}
-    console.log(result)
-    if (result.length>0) {console.log("login")}
-    else {res.send({status : 800})}
-    /*QUANDO SI RICEVE STATUS CODE 700, RESTARE SULLA PAGINA MANDANDO L'ALLERT USER O PASSWORD ERRATE*/
+    if (err) {throw err;console.log('errore nel salvataggio')}
+    if (result.length<1) {res.send({statusCode: 800}); console.log('error')}
+    else {res.send({status : 200});console.log('login')}
+    console.log(res.json())
     })
   })
 
