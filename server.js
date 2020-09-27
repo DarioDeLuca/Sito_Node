@@ -67,5 +67,21 @@ app.post('/reg',midd,(req,res)=>{
   })
 
 
+app.get('/val',(req,res)=>{
+  const user = url.parse(req.url, true).query.user 
+  const password= url.parse(req.url, true).query.password
+  const hash = crypto.createHash('md5').update(password+salt).digest("hex")
+  const qry=`SELECT * FROM elenco_utenti WHERE utente= ${con.escape(user)} AND pwd=${con.escape(hash)}`
+  con.query(qry, function (err, result) {
+    if (err) {throw err;console.log('error')}
+    if (result.length<1) {res.send({statusCode: 800}); console.log('error')}
+    else {res.send({status : 200});console.log('login')}
+    console.log(res.json())
+    })
+  })
+
+
+
+
 
 
