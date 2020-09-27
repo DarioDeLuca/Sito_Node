@@ -40,59 +40,32 @@ app.get('/', function(req, res) {
 app.listen(8080);
 console.log('SERVER AVVIATO!')
 
+midd=function(req,res,next){
+  const user = url.parse(req.url, true).query.user
+  const qry=`SELECT * FROM elenco_utenti WHERE utente= ${con.escape(user)}`
+  con.query(qry,function(err,result){
+    if (err){throw err;console.log('error')}
+    if(result.length===0){
+      next()
+    }
+    else{
+      console.log('username già in uso')
+      res.send({status:800})
+    }
+  })
+}
 
-
-app.post('/reg',(req,res)=>{
+app.post('/reg',midd,(req,res)=>{
   const user = url.parse(req.url, true).query.user
   const password= url.parse(req.url, true).query.password
   const hash = crypto.createHash('md5').update(password+salt).digest("hex")
   const qry=`INSERT INTO elenco_utenti (utente, pwd) VALUES (${con.escape(user)},${con.escape(hash)})`
     con.query(qry, function (err, result) {
       if (err) {throw err; res.send({status : 800})}
-      else{res.send({status : 200})}
+      else{res.send({status : 200}), console.log('registrazione effettuata con successo')}
     })
   })
 
- const middleware = function(req,res,next) {
-  const user = url.parse(req.url, true).query.user 
-  const qry=`SELECT * FROM elenco_utenti WHERE utente= ${con.escape(user)}}`
-  con.query(qry, function (err, result) {
-      if (err) {throw err;console.log('errore nel salvataggio')}  
-  if (result.length()===0){
-  	next()
-  }
-  else{res.send({status:700})}	 		
- }
-
-app.get('/val',middleware,(req,res)=>{
-  const user = url.parse(req.url, true).query.user //scrivere nell'url ?user= valore & password=valore
-
-
-app.get('/val',(req,res)=>{
-<<<<<<< HEAD
-  const user = url.parse(req.url, true).query.user 
-=======
-  const user = url.parse(req.url, true).query.user //scrivere nell'url ?user=valore & password=valore
->>>>>>> ca092caad827dcc77cc85cccfa86d9e189501326
->>>>>>> e1ad7642b33b08cba1e45998318f893f7c730ac1
-  const password= url.parse(req.url, true).query.password
-  const hash = crypto.createHash('md5').update(password+salt).digest("hex")
-  const qry=`SELECT * FROM elenco_utenti WHERE utente= ${con.escape(user)} AND pwd=${con.escape(hash)}`
-  con.query(qry, function (err, result) {
-<<<<<<< HEAD
-    if (err) {throw err;console.log('errore nel salvataggio')}
-    if (result.length<1) {res.send({statusCode: 800}); console.log('error')}
-    else {res.send({status : 200});console.log('login')}
-    console.log(res.json())
-=======
-      if (err) {throw err;console.log('errore nel salvataggio')}
-    console.log(result)
-    if (result.length>0) {console.log("login")}
-    else {res.send({status : 800})}
-    /*QUANDO SI RICEVE STATUS CODE 800, RESTARE SULLA PAGINA MANDANDO L'ALLERT USER O PASSWORD ERRATE*/
->>>>>>> e1ad7642b33b08cba1e45998318f893f7c730ac1
-    })
-  })
 
 
 
